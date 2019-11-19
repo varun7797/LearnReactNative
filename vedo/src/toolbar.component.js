@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { Camera }  from 'expo-camera';
 import { Ionicons } from '@expo/vector-icons';
 import { Col, Row, Grid } from "react-native-easy-grid";
@@ -9,13 +9,15 @@ import styles from './styles';
 
 const { FlashMode: CameraFlashModes, Type: CameraTypes } = Camera.Constants;
 
-export default ({ 
+export default function Toolbar({ 
     capturing = false, 
     cameraType = CameraTypes.back, 
     flashMode = CameraFlashModes.off, 
     setFlashMode, setCameraType, 
     onCaptureIn, onCaptureOut, onLongCapture, onShortCapture,  
-}) => (
+}) {
+    return(
+
     <Grid style={styles.bottomToolbar}>
         <Row>
             <Col style={styles.alignCenter}>
@@ -55,3 +57,4 @@ export default ({
         </Row>
     </Grid>
 );
+};
